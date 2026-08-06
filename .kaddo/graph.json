@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-06T17:37:55.299Z",
+  "project": {
+    "name": "ArtTattoo",
+    "state": "new",
+    "structure": "monorepo"
+  },
+  "scope": "active",
+  "scope_reason": "No active Work Items found. Completed Work Items are excluded from active scope.",
+  "included_statuses": [
+    "draft",
+    "ready",
+    "in-progress",
+    "blocked"
+  ],
+  "excluded_statuses": [
+    "completed",
+    "archived"
+  ],
+  "nodes": [
+    {
+      "id": "business:business",
+      "type": "business",
+      "label": "Business",
+      "path": "knowledge/business/business.md"
+    },
+    {
+      "id": "product:product",
+      "type": "product",
+      "label": "Product",
+      "path": "knowledge/product/product.md"
+    },
+    {
+      "id": "tech:tech",
+      "type": "tech",
+      "label": "Tech",
+      "path": "knowledge/tech/current-state.md"
+    },
+    {
+      "id": "delivery:delivery",
+      "type": "delivery",
+      "label": "Delivery",
+      "path": "knowledge/delivery/roadmap.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "business:business",
+      "to": "product:product",
+      "type": "informs"
+    },
+    {
+      "from": "product:product",
+      "to": "tech:tech",
+      "type": "informs"
+    },
+    {
+      "from": "tech:tech",
+      "to": "delivery:delivery",
+      "type": "informs"
+    }
+  ]
+}

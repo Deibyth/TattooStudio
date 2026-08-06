@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-08-06T17:37:55.315Z",
+  "scope": "active",
+  "scope_reason": "No active Work Items found. Completed Work Items are excluded from active scope.",
+  "quality": "empty",
+  "summary": {
+    "nodes": 4,
+    "edges": 3,
+    "hints": 3
+  },
+  "metrics": {
+    "nodes_count": 4,
+    "edges_count": 3,
+    "connected_nodes_count": 4,
+    "isolated_nodes_count": 0,
+    "active_work_items_without_code": 0,
+    "active_work_items_without_capabilities": 0,
+    "work_items_without_source": 0,
+    "adrs_without_code": 0,
+    "capsules_without_related_work_items": 0
+  },
+  "hints": [
+    {
+      "artifact_id": "Planned capabilities",
+      "artifact_type": "capability",
+      "severity": "info",
+      "missing": [
+        "work-item"
+      ],
+      "reason": "This capability is declared but no Work Item references it yet.",
+      "message": "Capability \"Planned capabilities\" is not linked to any Work Item."
+    },
+    {
+      "artifact_id": "Capability map",
+      "artifact_type": "capability",
+      "severity": "info",
+      "missing": [
+        "work-item"
+      ],
+      "reason": "This capability is declared but no Work Item references it yet.",
+      "message": "Capability \"Capability map\" is not linked to any Work Item."
+    },
+    {
+      "artifact_id": "Open questions",
+      "artifact_type": "capability",
+      "severity": "info",
+      "missing": [
+        "work-item"
+      ],
+      "reason": "This capability is declared but no Work Item references it yet.",
+      "message": "Capability \"Open questions\" is not linked to any Work Item."
+    }
+  ]
+}

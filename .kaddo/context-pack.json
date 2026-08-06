@@ -1,0 +1,343 @@
+{
+  "version": "1",
+  "generatedAt": "2026-08-06T17:37:54.576Z",
+  "project": {
+    "name": "ArtTattoo",
+    "state": "new",
+    "teamSize": "indie",
+    "structure": "monorepo",
+    "language": "Spanish"
+  },
+  "scan": {
+    "available": false,
+    "languages": [],
+    "frameworks": [],
+    "packageManagers": [],
+    "sourceDirectories": [],
+    "migrationDirectories": [],
+    "contractFiles": [],
+    "infrastructureFiles": []
+  },
+  "knowledge": {
+    "summary": "",
+    "roadmapSummary": "> Language contract: knowledge files are written in English. The site's end-user UI copy is Spanish (Argentine); that copy language is a product decision recorded here, not the artifact language. Code, file names, commands and config keys remain in English.",
+    "inventoryAvailable": false,
+    "workItems": [],
+    "activeWorkItems": [],
+    "completedWorkItems": [],
+    "archivedWorkItems": [],
+    "allWorkItems": [],
+    "artifacts": []
+  },
+  "layers": [
+    {
+      "layer": "Business",
+      "status": "Consolidated",
+      "detected": [
+        "business.md"
+      ]
+    },
+    {
+      "layer": "Product",
+      "status": "Structured",
+      "detected": [
+        "capabilities.md",
+        "product.md"
+      ]
+    },
+    {
+      "layer": "Tech",
+      "status": "Structured",
+      "detected": [
+        "codebase.md",
+        "current-state.md"
+      ]
+    },
+    {
+      "layer": "Delivery",
+      "status": "Partial",
+      "detected": [
+        "roadmap.md"
+      ]
+    }
+  ],
+  "knowledgeQuality": {
+    "business": {
+      "status": "Consolidated",
+      "artifacts": {
+        "knowledge/business/business.md": "useful"
+      }
+    },
+    "product": {
+      "status": "Structured",
+      "artifacts": {
+        "knowledge/product/product.md": "useful",
+        "knowledge/product/capabilities.md": "useful"
+      }
+    },
+    "tech": {
+      "status": "Structured",
+      "artifacts": {
+        "knowledge/tech/codebase.md": "useful",
+        "knowledge/tech/current-state.md": "useful"
+      }
+    },
+    "delivery": {
+      "status": "Partial",
+      "artifacts": {
+        "knowledge/delivery/roadmap.md": "useful"
+      }
+    }
+  },
+  "roadmap": {
+    "present": true,
+    "initiatives": 0,
+    "work_item_candidates": 0,
+    "materialized_work_items": 0,
+    "remaining_work_item_candidates": 0,
+    "candidates": 0,
+    "materialized": 0,
+    "remaining": 0
+  },
+  "phase": {
+    "phase": "Planning",
+    "reasons": [
+      "Roadmap available",
+      "0 materialized work item(s)"
+    ],
+    "recommendedAgents": [
+      "roadmap-agent"
+    ],
+    "nextStep": "Run `kaddo add agents` to install the Kaddo agent prompt packs.",
+    "llmInstructions": [
+      "Use the roadmap-agent.",
+      "Do not write code.",
+      "Generate roadmap candidates."
+    ]
+  },
+  "nextStepRecommendation": {
+    "id": "add-agents",
+    "phase": "Setup",
+    "label": "Run `kaddo add agents` to install the Kaddo agent prompt packs.",
+    "command": "kaddo add agents",
+    "reason": "No Kaddo agents are installed yet."
+  },
+  "deliveryState": {
+    "phase": "Setup",
+    "draft_work_items": 0,
+    "refined_draft_work_items": 0,
+    "refined_draft_ids": [],
+    "ready_work_items": 0,
+    "ready_work_item_ids": [],
+    "ready_multirepo_wi_ids": [],
+    "in_progress_work_items": 0,
+    "blocked_work_items": 0,
+    "total_work_items": 0,
+    "ownership_coverage": "0/0",
+    "remaining_work_item_candidates": 0,
+    "decision_candidates": 0,
+    "accepted_adrs": 0,
+    "adapters_installed": 0
+  },
+  "techDecisions": {
+    "status": "none",
+    "candidates": 0,
+    "adrs": 0,
+    "draft_adrs": 0,
+    "accepted_adrs": 0,
+    "candidate_list": [],
+    "candidates_source": null,
+    "candidates_legacy_location": false,
+    "candidates_both_exist": false
+  },
+  "techKnowledge": {
+    "core": {
+      "current-state.md": true,
+      "codebase.md": true
+    },
+    "decisions": {
+      "adrs": 0,
+      "dir": true
+    },
+    "discovery": {
+      "architecture-notes.md": false,
+      "decision-candidates.md": false,
+      "legacyLocation": false
+    }
+  },
+  "roadmapQuality": {
+    "initiatives": {
+      "total": 0,
+      "grounded": 0,
+      "with_related_domain": 0,
+      "with_related_capability": 0,
+      "with_source_signals": 0,
+      "needs_refinement": false,
+      "items": []
+    },
+    "work_item_candidates": {
+      "total": 0,
+      "with_source_initiative": 0,
+      "with_related_domain": 0,
+      "with_related_capability": 0
+    }
+  },
+  "installedAssets": {
+    "version": "3.68.0",
+    "agents": {
+      "total": 20,
+      "installed": 0,
+      "outdated": 0,
+      "unknown_version": 0,
+      "modified": 0
+    },
+    "skills": {
+      "total": 8,
+      "installed": 0,
+      "outdated": 0,
+      "unknown_version": 0,
+      "modified": 0
+    }
+  },
+  "workItemSummary": {
+    "total": 0,
+    "active": 0,
+    "draft": 0,
+    "ready": 0,
+    "in_progress": 0,
+    "blocked": 0,
+    "completed": 0,
+    "archived": 0,
+    "summary": "none"
+  },
+  "deliveryMix": {},
+  "external": [],
+  "graph": null,
+  "graphHints": null,
+  "skills": [],
+  "scanSignals": null,
+  "projectRoute": {
+    "type": "new",
+    "currentStep": "materialize-work-item",
+    "completed": 6,
+    "total": 12,
+    "progressPercent": 50,
+    "steps": [
+      {
+        "id": "enable-kaddo",
+        "label": "Enable Kaddo",
+        "status": "done",
+        "evidence": [
+          ".kaddo/config.yml"
+        ]
+      },
+      {
+        "id": "define-business",
+        "label": "Define business context",
+        "status": "done",
+        "evidence": [
+          "knowledge/business/business.md"
+        ]
+      },
+      {
+        "id": "define-product",
+        "label": "Define product context",
+        "status": "done",
+        "evidence": [
+          "knowledge/product/product.md"
+        ]
+      },
+      {
+        "id": "discover-capabilities",
+        "label": "Define initial capabilities",
+        "status": "done",
+        "evidence": [
+          "knowledge/product/capabilities.md"
+        ]
+      },
+      {
+        "id": "describe-architecture",
+        "label": "Define initial architecture",
+        "status": "done",
+        "evidence": [
+          "knowledge/tech/current-state.md",
+          "knowledge/tech/codebase.md"
+        ]
+      },
+      {
+        "id": "create-work-source",
+        "label": "Create initial work source",
+        "status": "done",
+        "evidence": [
+          "knowledge/delivery/roadmap.md"
+        ]
+      },
+      {
+        "id": "materialize-work-item",
+        "label": "Create first Work Item",
+        "status": "pending"
+      },
+      {
+        "id": "refine-work-item",
+        "label": "Refine Work Item",
+        "status": "pending"
+      },
+      {
+        "id": "suggest-ownership",
+        "label": "Suggest ownership",
+        "status": "pending"
+      },
+      {
+        "id": "prepare-implementation",
+        "label": "Prepare implementation",
+        "status": "pending"
+      },
+      {
+        "id": "run-guard",
+        "label": "Run guard",
+        "status": "pending"
+      },
+      {
+        "id": "capture-learning",
+        "label": "Capture learning",
+        "status": "optional",
+        "reason": "Project is still in early discovery."
+      }
+    ]
+  },
+  "metadataHealth": {
+    "findings": [],
+    "healthy": 6,
+    "drifted": 0
+  },
+  "mappedModules": [],
+  "moduleStatuses": {},
+  "affectedModuleContexts": {},
+  "isModuleRepo": false,
+  "missing": [
+    "Scan baseline missing. Run `kaddo scan` for better context.",
+    "No technical inventory found. Run `kaddo scan` to generate it.",
+    "No project knowledge summary found yet.",
+    "No work items found."
+  ],
+  "handoff": {
+    "recommendedAgents": [
+      "roadmap-agent"
+    ],
+    "nextSteps": [
+      "Run `kaddo add agents` to install the Kaddo agent prompt packs."
+    ],
+    "instructions": [
+      "Use the roadmap-agent.",
+      "Do not write code.",
+      "Generate roadmap candidates."
+    ],
+    "operatingRules": [
+      "**Never run `git commit`, `git push` or `git merge` without explicit human confirmation.**",
+      "Never push or merge automatically — ever. Suggest a Conventional Commit message and wait.",
+      "When implementing a Work Item, create a branch FIRST (per the project Git strategy, `.kaddo/git.yml`, default `feature/<id>-<slug>`). Never work directly on `main`.",
+      "After significant changes run `kaddo scan`, `kaddo owners suggest` and `kaddo guard`, and update the affected knowledge (ADR / capabilities / current-state).",
+      "Kaddo itself never calls an LLM and never runs git — every git action is the human’s."
+    ]
+  }
+}
