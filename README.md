@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Artnaldo Tattoo Studio
+
+Landing page for **Artnaldo Tattoo**, a blackwork and neo-Japanese tattoo studio in Bogotá, Colombia. Built with Next.js (App Router), Tailwind CSS v4, and Motion — with a strong focus on SEO, security hardening, and Core Web Vitals.
+
+## Features
+
+- 🎨 **Blackwork & neo-Japanese showcase** — hero, ritual story section, and a dynamic portfolio gallery
+- 🖼️ **Dynamic portfolio** — images served through an App Router API route (`/api/portfolio`) that lists assets from `public/portfolio/`
+- ♾️ **Infinite carousel** — auto-scrolling gallery built with Motion
+- 🔍 **On-page SEO** — rich metadata, canonical URL, Open Graph & Twitter cards, and structured data (JSON-LD)
+- 🗺️ **Sitemap & robots** — `/sitemap.xml` and `/robots.txt` served statically
+- 🛡️ **Security hardening** — strict Content Security Policy (no inline scripts in production), HSTS, `X-Frame-Options`, and hidden `X-Powered-By`
+- 📱 **Brand polish** — custom favicon (`icon.png`) and apple-touch icon from the studio logo, splash screen, dark theme with `theme-color`
+
+## Tech Stack
+
+| Layer      | Technology                                         |
+| ---------- | -------------------------------------------------- |
+| Framework  | Next.js 16 (App Router)                            |
+| UI         | React 19, Tailwind CSS v4, shadcn/ui (`@base-ui`)  |
+| Motion     | `motion` (formerly Framer Motion)                  |
+| Icons      | lucide-react                                       |
+| Language   | TypeScript 5                                        |
+| Package    | pnpm 11                                            |
 
 ## Getting Started
 
-First, run the development server:
+Requirements: **Node.js 20+** (or Bun) and **pnpm**.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# 1. Install dependencies
+pnpm install
+
+# 2. Run the development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The page auto-updates as you edit files under `src/app/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Production build
 
-## Learn More
+```bash
+pnpm build        # create a production build
+pnpm start        # serve the production build (-p 3000 by default)
+pnpm lint         # run ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/
+│   │   └── portfolio/route.ts   # API: lists images from public/portfolio/
+│   ├── globals.css               # Global styles / Tailwind theme
+│   ├── layout.tsx                # Metadata, fonts, CSP-compliant structure
+│   ├── page.tsx                  # Landing page (hero + portfolio + JSON-LD)
+│   ├── robots.ts                 # robots.txt (static)
+│   ├── sitemap.ts                # sitemap.xml (static)
+│   └── icon.png / apple-icon.png # Favicon assets
+├── components/
+│   ├── Footer.tsx                # Footer with social links & WhatsApp CTA
+│   ├── JsonLd.tsx                # Reusable JSON-LD script renderer
+│   ├── KatanaDivider.tsx         # Decorative divider
+│   ├── KintsugiDivider.tsx       # Decorative divider
+│   ├── Portfolio.tsx             # Portfolio section
+│   ├── PortfolioCarousel.tsx     # Infinite auto-scrolling carousel
+│   └── SplashScreen.tsx          # Intro splash animation
+├── data/
+│   └── portfolio.ts              # Portfolio image metadata
+└── lib/
+    └── site.ts                   # Site-wide constants + URL helper (single source of truth for SEO)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+| Variable              | Default                        | Description                                    |
+| --------------------- | ------------------------------ | ---------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | `https://artnaldotattoo.vercel.app` | Canonical base URL. **Set this to your production domain** before deploying. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vars are read through `src/lib/site.ts`, which centralises the site URL, brand name, contact phone, and socials. Update `SITE_FALLBACK_URL` there to point to your real domain.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Portfolio & Images
+
+- The API route `src/app/api/portfolio/route.ts` serves images from `public/portfolio/`.
+- Add new work by dropping image files into `public/portfolio/`; they are picked up automatically (JPEG, PNG, and WebP supported).
+- Image optimization is enabled via `next/image` with a 75/100 quality profile (`next.config.ts`).
+
+## Security
+
+The site ships with production-hardening headers applied globally via `next.config.ts`:
+
+- **Content-Security-Policy** — strict (no inline scripts) in production, relaxed in dev for HMR
+- **Strict-Transport-Security** (HSTS with `preload`)
+- **X-Frame-Options: DENY**
+- **X-Content-Type-Options: nosniff**
+- **Referrer-Policy**, **Permissions-Policy**
+- `poweredByHeader: false` (hides `X-Powered-By`)
+
+## Deployment
+
+The easiest way is to push to GitHub and connect the repo to [Vercel](https://vercel.com).
+
+Before deploying to production:
+
+1. Set `NEXT_PUBLIC_SITE_URL` to your real domain in Vercel's environment variables.
+2. Update the `TODO` in `src/lib/site.ts` to replace the fallback URL.
+3. Fill in the studio's real `streetAddress` / `geo` coordinates in the JSON-LD in `src/app/page.tsx`.
+
+## License
+
+All rights reserved.
