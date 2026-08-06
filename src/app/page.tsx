@@ -1,0 +1,215 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "motion/react";
+import Portfolio from "@/components/Portfolio";
+import KatanaDivider from "@/components/KatanaDivider";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen relative font-sans">
+      <div className="grain-overlay" />
+
+      {/* HEADER */}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="fixed top-0 w-full z-50 border-b border-carbon-700/50 bg-carbon-900/80 backdrop-blur-md"
+      >
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+             <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/50">
+               <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill className="object-cover" />
+             </div>
+             <span className="font-display font-semibold text-xl tracking-widest text-blanco-washi">Artnaldo Tattoo</span>
+          </div>
+          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-gris-secundario">
+            <a href="#inicio" className="relative hover:text-blanco-washi transition-colors group">
+              Inicio
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+            </a>
+            <a href="#portafolio" className="relative hover:text-blanco-washi transition-colors group">
+              Portafolio
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+            </a>
+            <a href="#ritual" className="relative hover:text-blanco-washi transition-colors group">
+              El Ritual
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+            </a>
+          </nav>
+        </div>
+      </motion.header>
+
+      {/* HERO */}
+      <section
+        id="inicio"
+        className="relative isolate min-h-screen flex items-center overflow-hidden"
+      >
+        {/* Background protagonista, estático (sin parallax) */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/fondo.png"
+            alt=""
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_900px_650px_at_25%_55%,rgba(10,10,11,0.78),rgba(10,10,11,0.35)_45%,rgba(10,10,11,0.08)_75%,transparent_95%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/85 via-transparent to-transparent"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto w-full px-6 pt-32 pb-24">
+
+           <motion.div
+             initial={{ opacity: 0, x: -50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 1, delay: 0.2 }}
+             className="space-y-8 relative z-10 max-w-2xl"
+           >
+             <motion.div
+               initial={{ opacity: 0, y: 10 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.1 }}
+               className="inline-block px-4 py-1.5 border border-oro-kintsugi/30 rounded-full text-xs font-semibold tracking-widest text-oro-kintsugi uppercase bg-carbon-800/50 backdrop-blur-sm"
+             >
+                Sumi-e x Dark Blackwork
+             </motion.div>
+
+             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-blanco-washi leading-[1.1] tracking-tight text-glow">
+               {"TINTA &".split("").map((char, i) => (
+                 <motion.span
+                   key={i}
+                   initial={{ opacity: 0, y: 30 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.5, delay: 0.3 + i * 0.03, ease: "easeOut" }}
+                   className="inline-block"
+                 >
+                   {char === " " ? "\u00A0" : char}
+                 </motion.span>
+               ))}
+               <br />
+               <span className="text-transparent bg-clip-text bg-gradient-to-br from-blanco-washi to-carbon-600">
+                 {"SOMBRA".split("").map((char, i) => (
+                   <motion.span
+                     key={i}
+                     initial={{ opacity: 0, y: 30 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.5, delay: 0.6 + i * 0.04, ease: "easeOut" }}
+                     className="inline-block"
+                   >
+                     {char}
+                   </motion.span>
+                 ))}
+               </span>
+             </h1>
+
+             <motion.p
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 0.8, delay: 1 }}
+               className="text-lg md:text-xl text-gris-secundario font-light max-w-lg leading-relaxed"
+             >
+               Trasnformamos ideas en arte permanente. Especialista en Blackwork, Sombras y Realismo. Precisión, oscuridad y ceremonia en cada trazo.
+             </motion.p>
+
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 1.2 }}
+               className="pt-4 flex flex-col sm:flex-row gap-6"
+             >
+                <motion.a
+                  href="https://api.whatsapp.com/send/?phone=573228851584&text=%F0%9F%9A%80%20Quiero%20m%C3%A1s%20informaci%C3%B3n&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="bg-rojo-torii-600 hover:bg-rojo-torii-500 text-blanco-washi px-8 py-4 text-sm font-bold tracking-widest uppercase transition-colors duration-300 shadow-[0_0_15px_rgba(217,4,41,0.2)] hover:shadow-[0_0_25px_rgba(217,4,41,0.4)] cursor-pointer inline-block"
+                >
+                  Agendar Cita / Cotizar
+                </motion.a>
+                <motion.a
+                  href="#portafolio"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-8 py-4 text-sm font-bold tracking-widest uppercase text-blanco-washi border border-carbon-600 hover:border-oro-kintsugi/50 hover:bg-carbon-800 transition-all cursor-pointer text-center"
+                >
+                  Ver Portafolio
+                </motion.a>
+             </motion.div>
+           </motion.div>
+        </div>
+
+        {/* indicador de scroll */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-10 bg-gradient-to-b from-oro-kintsugi to-transparent"
+          />
+        </motion.div>
+      </section>
+
+      <KatanaDivider />
+
+      {/* PORTAFOLIO */}
+      <Portfolio />
+
+      <KatanaDivider />
+
+      {/* RITUAL / THE ARTIST */}
+      <section id="ritual" className="py-24 px-6 bg-carbon-900/95 relative z-10 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+           <motion.div
+             initial={{ opacity: 0, y: 50 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, margin: "-100px" }}
+             transition={{ duration: 0.8 }}
+             whileHover={{ scale: 1.01 }}
+             className="relative h-[600px] md:h-[760px] w-full border border-carbon-700 rounded-sm overflow-hidden group"
+           >
+              <Image
+                src="/naldofoto.jpg"
+                alt="Naldo, tatuador y fundador del estudio"
+                fill
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/70 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 border border-oro-kintsugi/20 group-hover:border-oro-kintsugi/50 m-4 rounded-sm z-20 pointer-events-none transition-colors duration-500"></div>
+           </motion.div>
+
+           <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true, margin: "-100px" }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             className="space-y-8"
+           >
+              <h2 className="text-4xl md:text-5xl font-display text-blanco-washi">EL RITUAL ANTES <br/>DE LA TINTA</h2>
+              <div className="w-12 h-1 bg-rojo-torii-600"></div>
+              <p className="text-lg text-gris-secundario font-light leading-relaxed">
+                 Cada pieza comienza en el papel y termina en la piel. Mi enfoque combina la rica herencia del arte tradicional con la contundencia y oscuridad del blackwork contemporáneo.
+              </p>
+              <p className="text-lg text-gris-secundario font-light leading-relaxed">
+                 No es solo un tatuaje; es una ceremonia de transformación. Diseños únicos, creados a medida para contar tu historia a través de la sombra y el contraste.
+              </p>
+           </motion.div>
+        </div>
+      </section>
+
+      {/* FOOTER (CTA + navegación + redes + crédito) */}
+      <Footer />
+    </div>
+  );
+}
