@@ -62,7 +62,7 @@ export default function Footer() {
           className="max-w-3xl mx-auto space-y-8"
         >
           <div className="w-16 h-16 relative mx-auto rounded-full overflow-hidden border border-carbon-600">
-            <Image src="/logo.jpg" alt="Logo Footer" fill className="object-cover" />
+            <Image src="/logo.jpg" alt="Logo Footer" fill sizes="64px" className="object-cover" />
           </div>
           <h2 className="text-3xl md:text-5xl font-display text-blanco-washi">
             ¿LISTO PARA TU PRÓXIMA PIEZA?
@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/40">
-              <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill className="object-cover" />
+              <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill sizes="40px" className="object-cover" />
             </div>
             <span className="font-display font-semibold text-xl tracking-widest text-blanco-washi">
               Artnaldo Tattoo

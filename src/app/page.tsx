@@ -5,10 +5,124 @@ import { motion } from "motion/react";
 import Portfolio from "@/components/Portfolio";
 import KatanaDivider from "@/components/KatanaDivider";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
+
+/* JSON-LD (Schema.org) — datos de la landing para rich snippets.
+ * ADDRESS / GEO: TODO — reemplazar address.streetAddress por la dirección
+ * real del estudio y añadir `geo` con las coordenadas reales de Bogotá
+ * cuando se conozcan. No se emiten coordenadas ficticias. */
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": ["TattooParlour", "LocalBusiness"],
+  "@id": `${SITE.home}`,
+  name: SITE.shortName,
+  alternateName: SITE.name,
+  description:
+    "Estudio de tatuajes en Bogotá especializado en Blackwork, Neo-Japonés, Realismo, Fine Line y cobertura. Diseños a medida y cotización por WhatsApp.",
+  url: SITE.home,
+  telephone: SITE.telephone,
+  image: SITE.logo,
+  priceRange: "$$$",
+  sameAs: [SITE.instagram],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "TODO: dirección real del estudio",
+    addressLocality: "Bogotá D.C.",
+    addressRegion: "Cundinamarca",
+    postalCode: "110111",
+    addressCountry: "CO",
+  },
+  // TODO: agregar `geo` con la latitud y longitud reales del estudio.
+  areaServed: { "@type": "City", name: "Bogotá" },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
+    opens: "11:00", // TODO: ajustar horario real
+    closes: "20:00", // TODO: ajustar horario real
+  },
+};
+
+const organizationJson = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE.home}#organization`,
+  name: SITE.name,
+  url: SITE.home,
+  logo: SITE.logo,
+  telephone: SITE.telephone,
+  sameAs: [SITE.instagram],
+};
+
+const faqJson = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿En qué estilos de tatuaje se especializa Artnaldo Tattoo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Nos especializamos en Blackwork, Neo-Japonés, Realismo, Fine Line y cobertura (cover up). Cada pieza se diseña a medida según la idea del cliente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo pido una cotización para mi tatuaje?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Escríbenos por WhatsApp con la descripción de tu idea, la zona del cuerpo y el tamaño aproximado. Te respondemos con un diseño propuesto y el valor estimado.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Es seguro hacerse un tatuaje?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Usamos material desechable, agujas de un solo uso y seguimos las normas de bioseguridad exigidas por la Secretaría Distrital de Salud de Bogotá.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo debo cuidar mi tatuaje después de la sesión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mantén el tatuaje limpio y seco, aplica la crema recomendada y evita la exposición directa al sol y el agua en los primeros días. Al final de la cita recibes las instrucciones completas.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Se pueden hacer tatuajes en Colombia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, el tatuaje es legal en Colombia para mayores de 18 años y se realiza bajo las normas de bioseguridad locales",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué tener en cuenta antes de mi primer tatuaje?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Define la idea y la zona del cuerpo, descansa bien y evita el alcohol previo a la sesión. Un tatuaje es permanente, así que tomamos el tiempo necesario para diseñar juntos algo que realmente ames.",
+      },
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <div className="min-h-screen relative font-sans">
+      <JsonLd data={localBusiness} />
+      <JsonLd data={organizationJson} />
+      <JsonLd data={faqJson} />
+
       <div className="grain-overlay" />
 
       {/* HEADER */}
@@ -21,7 +135,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/50">
-               <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill className="object-cover" />
+               <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill sizes="40px" className="object-cover" />
              </div>
              <span className="font-display font-semibold text-xl tracking-widest text-blanco-washi">Artnaldo Tattoo</span>
           </div>
@@ -113,7 +227,10 @@ export default function Home() {
                transition={{ duration: 0.8, delay: 1 }}
                className="text-lg md:text-xl text-gris-secundario font-light max-w-lg leading-relaxed"
              >
-               Trasnformamos ideas en arte permanente. Especialista en Blackwork, Sombras y Realismo. Precisión, oscuridad y ceremonia en cada trazo.
+               Transformamos ideas en arte permanente. Estudio de tatuajes en
+                Bogotá especializado en Blackwork, Neo-Japonés, Realismo,
+                Fine Line y cobertura. Precisión, oscuridad y ceremonia en
+                cada trazo.
              </motion.p>
 
              <motion.div
@@ -201,9 +318,16 @@ export default function Home() {
               <p className="text-lg text-gris-secundario font-light leading-relaxed">
                  Cada pieza comienza en el papel y termina en la piel. Mi enfoque combina la rica herencia del arte tradicional con la contundencia y oscuridad del blackwork contemporáneo.
               </p>
-              <p className="text-lg text-gris-secundario font-light leading-relaxed">
-                 No es solo un tatuaje; es una ceremonia de transformación. Diseños únicos, creados a medida para contar tu historia a través de la sombra y el contraste.
-              </p>
+<p className="text-lg text-gris-secundario font-light leading-relaxed">
+                  No es solo un tatuaje; es una ceremonia de transformación. Diseños únicos, creados a medida para contar tu historia a través de la sombra y el contraste.
+               </p>
+               <p className="text-lg text-gris-secundario font-light leading-relaxed">
+                  Domesticamos el blanco y negro en todas sus formas: blackwork denso,
+                  neo-japonés de inspiración ukiyo-e, realismo y fine line de línea fina,
+                  además de coberturas y rediseños sobre tinta previa. Cada sesión en el
+                  estudio de Artnaldo Tattoo en Bogotá se trabaja bajo normas de
+                  bioseguridad y con tinta de alta calidad.
+               </p>
            </motion.div>
         </div>
       </section>
