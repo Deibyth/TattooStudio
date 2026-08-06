@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-carbon-900: #0A0A0B;
+  --color-carbon-800: #141416;
+  --color-carbon-700: #16161A;
+  --color-carbon-600: #222226;
+  
+  --color-rojo-torii-500: #D90429;
+  --color-rojo-torii-600: #C8102E;
+  
+  --color-oro-kintsugi: #C5A059;
+  
+  --color-blanco-washi: #E2E2E2;
+  --color-gris-secundario: #A0A0A0;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-shippori), ui-serif, Georgia, serif;
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  --background: var(--color-carbon-900);
+  --foreground: var(--color-blanco-washi);
+  
+  --card: var(--color-carbon-800);
+  --card-foreground: var(--color-blanco-washi);
+
+  --popover: var(--color-carbon-800);
+  --popover-foreground: var(--color-blanco-washi);
+
+  --primary: var(--color-rojo-torii-500);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--color-carbon-700);
+  --secondary-foreground: var(--color-blanco-washi);
+
+  --muted: var(--color-carbon-700);
+  --muted-foreground: var(--color-gris-secundario);
+
+  --accent: var(--color-carbon-600);
+  --accent-foreground: var(--color-blanco-washi);
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ffffff;
+
+  --border: var(--color-carbon-600);
+  --input: var(--color-carbon-600);
+  --ring: var(--color-oro-kintsugi);
+
+  --radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* textura de grano de papel washi, muy sutil, sobre toda la página */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* scrollbar fina, acorde a la paleta carbón/oro */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-carbon-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-carbon-600);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-oro-kintsugi);
+}
+
+@utility glow-border {
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Oro Kintsugi */
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba(197, 160, 89, 0.8);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+  }
+}
+
+@utility text-glow {
+  text-shadow: 0 0 30px rgba(197, 160, 89, 0.25);
+}
