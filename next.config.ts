@@ -2,18 +2,25 @@ import type { NextConfig } from "next";
 
 /**
  * Security headers — hardening del sitio.
- * - Uso un CSP condicionado por entorno: en dev Next.js inyecta scripts
- *   inline para HMR/fast refresh, por eso se relaja con 'unsafe-inline';
- *   en producción se aplica el policy estricto (sin inline). Solo hay un
- *   bloque inline real en producción (la asignación self.__next_r de Next),
- *   por lo que el policy de prod se mantiene sin `unsafe-inline`.
+ * - CSP condicionado por entorno. IMPORTANTE (verificado contra la guía oficial
+ *   de Next.js `docs/01-app/02-guides/content-security-policy.md`):
+ *   el App Router inyecta scripts inline OBLIGATORIOS en producción
+ *   (contexto de hidratación `self.__next_f`) para poder hidratar la página.
+ *   Sin permitir inline, `script-src 'self'` bloquea esos scripts y la app no
+ *   arranca. Esta landing no recibe input de usuario ni datos sensibles, por lo
+ *   que `script-src 'self' 'unsafe-inline'` en producción es la receta oficial
+ *   "sin nonces" que mantiene el sitio estático/cacheable (seed de SEO).
+ *   El resto del policy (styles, img, fonts, connect, base-uri, frame-ancestors,
+ *   object-src, upgrade-insecure-requests) sigue estricto.
+ * - Un nonce permitiría un script-src sin 'unsafe-inline', pero obliga a
+ *   dynamic render (pierde prerender estático/CDN/SEO). No aplica acá.
  */
 const isProd = process.env.NODE_ENV === "production";
 
-// Scripts & estilos de producción: self + inline proporcionado por Next.
-// No hay terceros (Google Fonts se auto-alojan en _next/static vía next/font/google).
+// Scripts & estilos de producción: self + inline (requerido por Next para hidratación).
+// No hay terceros (Google Fonts se auto-alojan en _next/static via next/font/google).
 const scriptSrc = isProd
-  ? "'self'"
+  ? "'self' 'unsafe-inline'"
   : "'self' 'unsafe-inline' 'unsafe-eval'";
 const connectSrc = isProd
   ? "'self'"

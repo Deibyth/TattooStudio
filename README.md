@@ -92,7 +92,7 @@ Vars are read through `src/lib/site.ts`, which centralises the site URL, brand n
 
 The site ships with production-hardening headers applied globally via `next.config.ts`:
 
-- **Content-Security-Policy** — strict (no inline scripts) in production, relaxed in dev for HMR
+- **Content-Security-Policy** — locked down for styles, images, fonts, connections, frames and object sources; `script-src 'self' 'unsafe-inline'` because the App Router injects mandatory hydration scripts (see comments in `next.config.ts`)
 - **Strict-Transport-Security** (HSTS with `preload`)
 - **X-Frame-Options: DENY**
 - **X-Content-Type-Options: nosniff**
