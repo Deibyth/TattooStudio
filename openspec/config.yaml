@@ -1,0 +1,49 @@
+# openspec/config.yaml
+schema: spec-driven
+
+context: |
+  Brand: ARTNALDO TATTOO — Blackwork / Neo-Japanese tattoo studio site.
+  Tech stack: greenfield — no project dependencies yet. Host has node v24.18.0, npm 12.0.1, pnpm 11.15.1, git 2.53.0. No bun/yarn/deno.
+  Architecture: undecided (to be resolved in the proposal/design phases).
+  Testing: no test runner established in project; strict TDD disabled until a runner is chosen and installed.
+  Style: technical artifacts in English; end-user UI copy in Spanish (Argentine audience) — spec-level decision.
+
+testing:
+  strict_tdd: false
+  detected: 2026-08-06
+  runner: none
+  runner_command: ""
+  layers:
+    unit: false
+    integration: false
+    e2e: false
+  coverage: false
+  coverage_command: ""
+  quality:
+    linter: false
+    type_checker: false
+    formatter: false
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    guidelines:
+      - Follow existing code patterns
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: ""
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
