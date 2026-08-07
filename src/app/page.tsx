@@ -292,7 +292,7 @@ export default function Home() {
              viewport={{ once: true, margin: "-100px" }}
              transition={{ duration: 0.8 }}
              whileHover={{ scale: 1.01 }}
-             className="relative h-[600px] md:h-[760px] w-full border border-carbon-700 rounded-sm overflow-hidden group"
+             className="relative aspect-[1080/1351] md:h-[760px] md:aspect-auto w-full border border-carbon-700 rounded-sm overflow-hidden group"
            >
               <Image
                 src="/naldofoto.jpg"
