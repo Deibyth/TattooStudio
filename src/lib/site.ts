@@ -15,7 +15,7 @@
  * TODO: reemplazar por el dominio definitivo (p. ej. https://artnaldo.com)
  * cuando esté registrado, y configurar NEXT_PUBLIC_SITE_URL en Vercel.
  */
-export const SITE_FALLBACK_URL = "https://artnaldotattoo.vercel.app";
+export const SITE_FALLBACK_URL = "https://tattoo-studio-seven-delta.vercel.app";
 
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ??
