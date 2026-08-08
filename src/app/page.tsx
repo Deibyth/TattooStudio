@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import Portfolio from "@/components/Portfolio";
 import KatanaDivider from "@/components/KatanaDivider";
+import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
@@ -331,6 +332,12 @@ export default function Home() {
            </motion.div>
         </div>
       </section>
+
+      {/* UBICACIÓN / MAPA */}
+      <KatanaDivider />
+
+      {/* MAPA */}
+      <MapSection />
 
       {/* FOOTER (CTA + navegación + redes + crédito) */}
       <Footer />

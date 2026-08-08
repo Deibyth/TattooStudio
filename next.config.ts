@@ -48,6 +48,11 @@ const securityHeaders = [
       `base-uri 'self'`,
       `form-action 'self'`,
       `frame-ancestors 'none'`,
+      // Embeds de terceros en iframes: Google Maps (MapSection.tsx).
+      // El contenido interno del iframe se gobierna por su propia CSP;
+      // aquí solo autorizamos el frame en sí. Si se agregan más embeds
+      // (videos, etc.) hay que ampliar esta directiva.
+      `frame-src https://www.google.com https://maps.google.com`,
       `upgrade-insecure-requests`,
     ].join("; "),
   },
