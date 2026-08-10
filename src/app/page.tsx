@@ -7,6 +7,7 @@ import KatanaDivider from "@/components/KatanaDivider";
 import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import { InstagramIcon, WhatsAppIcon } from "@/components/SocialIcons";
 import { SITE } from "@/lib/site";
 
 /* JSON-LD (Schema.org) — datos de la landing para rich snippets.
@@ -140,19 +141,41 @@ export default function Home() {
              </div>
              <span className="font-display font-semibold text-xl tracking-widest text-blanco-washi">Artnaldo Tattoo</span>
           </div>
-          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-gris-secundario">
-            <a href="#inicio" className="relative hover:text-blanco-washi transition-colors group">
-              Inicio
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-            </a>
-            <a href="#portafolio" className="relative hover:text-blanco-washi transition-colors group">
-              Portafolio
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-            </a>
-            <a href="#ritual" className="relative hover:text-blanco-washi transition-colors group">
-              El Ritual
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-            </a>
+          <nav className="hidden md:flex items-center gap-4 text-sm uppercase tracking-widest font-medium text-gris-secundario">
+            <div className="flex items-center gap-3">
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+              >
+                <InstagramIcon className="w-5 h-5" />
+              </a>
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+              </a>
+            </div>
+            <div className="flex items-center gap-8">
+              <a href="#inicio" className="relative hover:text-blanco-washi transition-colors group">
+                Inicio
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+              </a>
+              <a href="#portafolio" className="relative hover:text-blanco-washi transition-colors group">
+                Portafolio
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+              </a>
+              <a href="#ritual" className="relative hover:text-blanco-washi transition-colors group">
+                El Ritual
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+              </a>
+            </div>
           </nav>
         </div>
       </motion.header>
