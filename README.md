@@ -1,10 +1,10 @@
 # Artnaldo Tattoo Studio
 
-Landing page for **Artnaldo Tattoo**, a blackwork and neo-Japanese tattoo studio in Bogotá, Colombia. Built with Next.js (App Router), Tailwind CSS v4, and Motion — with a strong focus on SEO, security hardening, and Core Web Vitals.
+Landing page for **Artnaldo Tattoo**, a blackwork and Japanese tattoo studio in Bogotá, Colombia. Built with Next.js (App Router), Tailwind CSS v4, and Motion — with a strong focus on SEO, security hardening, and Core Web Vitals.
 
 ## Features
 
-- 🎨 **Blackwork & neo-Japanese showcase** — hero, ritual story section, and a dynamic portfolio gallery
+- 🎨 **Blackwork & Japanese showcase** — hero, ritual story section, and a dynamic portfolio gallery
 - 🖼️ **Dynamic portfolio** — images served through an App Router API route (`/api/portfolio`) that lists assets from `public/portfolio/`
 - ♾️ **Infinite carousel** — auto-scrolling gallery built with Motion
 - 🔍 **On-page SEO** — rich metadata, canonical URL, Open Graph & Twitter cards, and structured data (JSON-LD)

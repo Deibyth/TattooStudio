@@ -77,7 +77,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-sm text-gris-secundario font-light leading-relaxed max-w-xs">
-            Estudio de tatuajes Neo-Japonés y Blackwork. Precisión, oscuridad y
+            Estudio de tatuajes Japonés y Blackwork. Precisión, oscuridad y
             ceremonia en cada trazo.
           </p>
         </div>

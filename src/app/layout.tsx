@@ -16,9 +16,9 @@ const shippori = Shippori_Mincho({
 });
 
 const TITLE_DEFAULT =
-  "Artnaldo Tattoo | Estudio de Tatuajes Blackwork y Neo-Japonés en Bogotá";
+  "Artnaldo Tattoo | Estudio de Tatuajes Blackwork y Japonés en Bogotá";
 const TITLE_TEMPLATE =
-  "%s | Artnaldo Tattoo | Tatuajes Blackwork y Neo-Japonés en Bogotá";
+  "%s | Artnaldo Tattoo | Tatuajes Blackwork y Japonés en Bogotá";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     template: TITLE_TEMPLATE,
   },
   description:
-    "Estudio de tatuajes en Bogotá especializado en Blackwork, Neo-Japonés, Realismo y Fine Line. Diseños a medida, cotización por WhatsApp.",
+    "Estudio de tatuajes en Bogotá especializado en Blackwork, Japonés, Realismo y Fine Line. Diseños a medida, cotización por WhatsApp.",
   keywords: [
     "estudio de tatuajes Bogotá",
     "tatuajes blackwork Bogotá",
-    "tatuajes neo-japonés Bogotá",
+    "tatuajes japonés Bogotá",
     "realismo",
     "fine line",
     "cover up",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: "es_CO",
     title: TITLE_DEFAULT,
     description:
-      "Estudio de tatuajes en Bogotá: Blackwork, Neo-Japonés, Realismo y Fine Line. Diseños a medida, cotización por WhatsApp.",
+      "Estudio de tatuajes en Bogotá: Blackwork, Japonés, Realismo y Fine Line. Diseños a medida, cotización por WhatsApp.",
     url: siteUrl,
     siteName: SITE.shortName,
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE_DEFAULT,
     description:
-      "Estudio de tatuajes en Bogotá: Blackwork, Neo-Japonés, Realismo y Fine Line.",
+      "Estudio de tatuajes en Bogotá: Blackwork, Japonés, Realismo y Fine Line.",
     images: [SITE.logo],
   },
   robots: {

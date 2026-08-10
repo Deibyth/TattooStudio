@@ -21,7 +21,7 @@ const localBusiness = {
   name: SITE.shortName,
   alternateName: SITE.name,
   description:
-    "Estudio de tatuajes en Bogotá especializado en Blackwork, Neo-Japonés, Realismo, Fine Line y cobertura. Diseños a medida y cotización por WhatsApp.",
+    "Estudio de tatuajes en Bogotá especializado en Blackwork, Japonés, Realismo, Fine Line y cobertura. Diseños a medida y cotización por WhatsApp.",
   url: SITE.home,
   telephone: SITE.telephone,
   image: SITE.logo,
@@ -72,7 +72,7 @@ const faqJson = {
       name: "¿En qué estilos de tatuaje se especializa Artnaldo Tattoo?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nos especializamos en Blackwork, Neo-Japonés, Realismo, Fine Line y cobertura (cover up). Cada pieza se diseña a medida según la idea del cliente.",
+        text: "Nos especializamos en Blackwork, Japonés, Realismo, Fine Line y cobertura (cover up). Cada pieza se diseña a medida según la idea del cliente.",
       },
     },
     {
@@ -252,7 +252,7 @@ export default function Home() {
                className="text-lg md:text-xl text-gris-secundario font-light max-w-lg leading-relaxed"
              >
                Transformamos ideas en arte permanente. Estudio de tatuajes en
-                Bogotá especializado en Blackwork, Neo-Japonés, Realismo,
+                Bogotá especializado en Blackwork, Japonés, Realismo,
                 Fine Line y cobertura. Precisión, oscuridad y ceremonia en
                 cada trazo.
              </motion.p>
@@ -347,7 +347,7 @@ export default function Home() {
                </p>
                <p className="text-lg text-gris-secundario font-light leading-relaxed">
                   Domesticamos el blanco y negro en todas sus formas: blackwork denso,
-                  neo-japonés de inspiración ukiyo-e, realismo y fine line de línea fina,
+                  japonés de inspiración ukiyo-e, realismo y fine line de línea fina,
                   además de coberturas y rediseños sobre tinta previa. Cada sesión en el
                   estudio de Artnaldo Tattoo en Bogotá se trabaja bajo normas de
                   bioseguridad y con tinta de alta calidad.
