@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Portfolio from "@/components/Portfolio";
 import KatanaDivider from "@/components/KatanaDivider";
 import MapSection from "@/components/MapSection";
@@ -9,6 +10,14 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { InstagramIcon, WhatsAppIcon } from "@/components/SocialIcons";
 import { SITE } from "@/lib/site";
+
+/* Links de navegación del header, compartidos entre la barra desktop
+ * y el menú mobile (hamburguesa). */
+const NAV_LINKS = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#portafolio", label: "Portafolio" },
+  { href: "#ritual", label: "El Ritual" },
+];
 
 /* JSON-LD (Schema.org) — datos de la landing para rich snippets.
  * ADDRESS / GEO: TODO — reemplazar address.streetAddress por la dirección
@@ -119,6 +128,16 @@ const faqJson = {
 };
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <div className="min-h-screen relative font-sans">
       <JsonLd data={localBusiness} />
@@ -132,52 +151,135 @@ export default function Home() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 w-full z-50 border-b border-carbon-700/50 bg-carbon-900/80 backdrop-blur-md"
+        className="fixed top-0 w-full z-50"
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-             <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/50">
-               <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill sizes="40px" className="object-cover" />
-             </div>
-             <span className="font-display font-semibold text-xl tracking-widest text-blanco-washi">Artnaldo Tattoo</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-4 text-sm uppercase tracking-widest font-medium text-gris-secundario">
-            <div className="flex items-center gap-3">
+        <div className="relative z-50 border-b border-carbon-700/50 bg-carbon-900/80 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/50 shrink-0">
+                <Image src="/logo.jpg" alt="Artnaldo Tattoo Logo" fill sizes="40px" className="object-cover" />
+              </div>
+              <span className="font-display font-semibold text-lg sm:text-xl tracking-widest text-blanco-washi truncate">
+                Artnaldo Tattoo
+              </span>
+            </div>
+
+            {/* Navegación desktop */}
+            <nav className="hidden md:flex items-center gap-4 text-sm uppercase tracking-widest font-medium text-gris-secundario">
+              <div className="flex items-center gap-3">
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href={SITE.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                >
+                  <WhatsAppIcon className="w-5 h-5" />
+                </a>
+              </div>
+              <div className="flex items-center gap-8">
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="relative hover:text-blanco-washi transition-colors group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
+                  </a>
+                ))}
+              </div>
+            </nav>
+
+            {/* Acciones mobile: redes siempre visibles + menú hamburguesa */}
+            <div className="flex md:hidden items-center gap-2">
               <a
                 href={SITE.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi transition-all duration-300"
               >
-                <InstagramIcon className="w-5 h-5" />
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi transition-all duration-300"
               >
-                <WhatsAppIcon className="w-5 h-5" />
+                <WhatsAppIcon className="w-4 h-4" />
               </a>
+              <button
+                type="button"
+                aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+                onClick={() => setMenuOpen((v) => !v)}
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi transition-all duration-300"
+              >
+                <div className="relative w-4 h-3.5">
+                  <span
+                    className={`absolute left-0 top-0 h-0.5 w-4 bg-current transition-all duration-300 ${menuOpen ? "top-1.5 rotate-45" : ""}`}
+                  />
+                  <span
+                    className={`absolute left-0 top-1.5 h-0.5 w-4 bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+                  />
+                  <span
+                    className={`absolute left-0 top-3 h-0.5 w-4 bg-current transition-all duration-300 ${menuOpen ? "top-1.5 -rotate-45" : ""}`}
+                  />
+                </div>
+              </button>
             </div>
-            <div className="flex items-center gap-8">
-              <a href="#inicio" className="relative hover:text-blanco-washi transition-colors group">
-                Inicio
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-              </a>
-              <a href="#portafolio" className="relative hover:text-blanco-washi transition-colors group">
-                Portafolio
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-              </a>
-              <a href="#ritual" className="relative hover:text-blanco-washi transition-colors group">
-                El Ritual
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-oro-kintsugi group-hover:w-full transition-all duration-300" />
-              </a>
-            </div>
-          </nav>
+          </div>
         </div>
+
+        {/* Menú mobile */}
+        <AnimatePresence>
+          {menuOpen && (
+            <>
+              <motion.div
+                key="mobile-backdrop"
+                className="fixed inset-0 z-40 bg-carbon-900/60 backdrop-blur-sm md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setMenuOpen(false)}
+              />
+              <motion.nav
+                key="mobile-menu"
+                id="mobile-menu"
+                className="absolute top-full left-0 right-0 z-50 md:hidden border-b border-carbon-700/50 bg-carbon-900/95 backdrop-blur-md px-6 py-6 flex flex-col gap-5"
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+              >
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm uppercase tracking-widest font-medium text-gris-secundario hover:text-blanco-washi transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </motion.nav>
+            </>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* HERO */}
