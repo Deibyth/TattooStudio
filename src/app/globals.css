@@ -56,12 +56,18 @@
 
 html {
   scroll-behavior: smooth;
+  /* Evita scroll horizontal en cualquier ancho de pantalla. Se usa `clip`
+   * (no `hidden`) porque no crea un scroll container y por lo tanto NO
+   * afecta al header con position: fixed. */
+  overflow-x: clip;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  /* Mismo motivo que en html: clip no rompe el fixed header. */
+  overflow-x: clip;
 }
 
 /* textura de grano de papel washi, muy sutil, sobre toda la página */
