@@ -2,6 +2,8 @@
 
 import { motion } from "motion/react";
 import { SITE } from "@/lib/site";
+import RevealTitle from "@/components/RevealTitle";
+import { REVEAL_TITLES } from "@/data/revealTitles";
 
 /**
  * Sección de ubicación con mapa de Google embebido.
@@ -62,11 +64,11 @@ export default function MapSection() {
             Ubicación · Bogotá
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-display text-blanco-washi leading-[1.15] tracking-tight">
-            LA TINTA
-            <br />
-            TE ESPERA
-          </h2>
+          <RevealTitle
+            as="h2"
+            {...REVEAL_TITLES.map}
+            className="text-4xl md:text-5xl font-display text-blanco-washi leading-[1.15] tracking-tight"
+          />
 
           <div className="w-12 h-1 bg-rojo-torii-600" />
 

@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { InstagramIcon, WhatsAppIcon } from "@/components/SocialIcons";
 import { SITE } from "@/lib/site";
+import RevealTitle from "@/components/RevealTitle";
+import { REVEAL_TITLES } from "@/data/revealTitles";
 
 /* Links de navegación del header, compartidos entre la barra desktop
  * y el menú mobile (hamburguesa). */
@@ -319,33 +321,13 @@ export default function Home() {
                 Sumi-e x Dark Blackwork
              </motion.div>
 
-             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-blanco-washi leading-[1.1] tracking-tight text-glow">
-               {"TINTA &".split("").map((char, i) => (
-                 <motion.span
-                   key={i}
-                   initial={{ opacity: 0, y: 30 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.5, delay: 0.3 + i * 0.03, ease: "easeOut" }}
-                   className="inline-block"
-                 >
-                   {char === " " ? "\u00A0" : char}
-                 </motion.span>
-               ))}
-               <br />
-               <span className="text-transparent bg-clip-text bg-gradient-to-br from-blanco-washi to-carbon-600">
-                 {"SOMBRA".split("").map((char, i) => (
-                   <motion.span
-                     key={i}
-                     initial={{ opacity: 0, y: 30 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.5, delay: 0.6 + i * 0.04, ease: "easeOut" }}
-                     className="inline-block"
-                   >
-                     {char}
-                   </motion.span>
-                 ))}
-               </span>
-             </h1>
+             <RevealTitle
+               as="h1"
+               {...REVEAL_TITLES.hero}
+               className="text-5xl md:text-7xl lg:text-8xl font-display text-blanco-washi leading-[1.1] tracking-tight text-glow"
+               scrollReveal={false}
+               revealDelayMs={4500}
+             />
 
              <motion.p
                initial={{ opacity: 0 }}
@@ -439,7 +421,11 @@ export default function Home() {
              transition={{ duration: 0.8, delay: 0.2 }}
              className="space-y-8"
            >
-              <h2 className="text-4xl md:text-5xl font-display text-blanco-washi">EL RITUAL ANTES <br/>DE LA TINTA</h2>
+              <RevealTitle
+                as="h2"
+                {...REVEAL_TITLES.ritual}
+                className="text-4xl md:text-5xl font-display text-blanco-washi"
+              />
               <div className="w-12 h-1 bg-rojo-torii-600"></div>
               <p className="text-lg text-gris-secundario font-light leading-relaxed">
                  Cada pieza comienza en el papel y termina en la piel. Mi enfoque combina la rica herencia del arte tradicional con la contundencia y oscuridad del blackwork contemporáneo.

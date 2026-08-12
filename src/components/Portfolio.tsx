@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import PortfolioCarousel from "./PortfolioCarousel";
+import RevealTitle from "@/components/RevealTitle";
+import { REVEAL_TITLES } from "@/data/revealTitles";
 
 export type GalleryItem = {
   id: string;
@@ -59,9 +61,11 @@ export default function Portfolio() {
           <span className="text-xs uppercase tracking-[0.3em] text-oro-kintsugi">
             Galería
           </span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-display text-blanco-washi">
-            PORTAFOLIO
-          </h2>
+          <RevealTitle
+            as="h2"
+            {...REVEAL_TITLES.portfolio}
+            className="mt-3 text-4xl md:text-5xl font-display text-blanco-washi"
+          />
           <div className="w-12 h-1 bg-rojo-torii-600 mx-auto mt-5" />
           <p className="mt-5 text-gris-secundario font-light max-w-xl mx-auto">
             Desliza, arrastra o deja que la galería fluya. Cada pieza es única, creada a medida.

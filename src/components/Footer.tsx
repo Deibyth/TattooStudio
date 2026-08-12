@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { InstagramIcon, WhatsAppIcon } from "./SocialIcons";
+import RevealTitle from "@/components/RevealTitle";
+import { REVEAL_TITLES } from "@/data/revealTitles";
 
 /**
  * Iconos de marca (Instagram, WhatsApp) definidos en SocialIcons.tsx para
@@ -40,9 +42,11 @@ export default function Footer() {
           <div className="w-16 h-16 relative mx-auto rounded-full overflow-hidden border border-carbon-600">
             <Image src="/logo.jpg" alt="Logo Footer" fill sizes="64px" className="object-cover" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-display text-blanco-washi">
-            ¿LISTO PARA TU PRÓXIMA PIEZA?
-          </h2>
+          <RevealTitle
+            as="h2"
+            {...REVEAL_TITLES.footer}
+            className="text-3xl md:text-5xl font-display text-blanco-washi"
+          />
           <div className="w-12 h-1 bg-rojo-torii-600 mx-auto" />
           <p className="text-gris-secundario text-lg font-light">
             Inicia el proceso de cotización detallado. Validación de ideas y
