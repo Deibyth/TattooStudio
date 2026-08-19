@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     "tatuador Bogotá",
     "artnaldo tattoo",
   ],
+  authors: [{ name: "Artnaldo Tattoo Studio", url: siteUrl }],
+  creator: "Artnaldo Tattoo Studio",
+  publisher: "Artnaldo Tattoo Studio",
   applicationName: SITE.shortName,
   alternates: {
     canonical: siteUrl,
@@ -54,9 +57,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: SITE.logo,
+        width: 1200,
+        height: 630,
+        alt: "Artnaldo Tattoo Studio - Blackwork y Japonés en Bogotá",
+        type: "image/jpeg",
+      },
+      {
+        url: SITE.logo,
         width: 150,
         height: 150,
         alt: "Logo Artnaldo Tattoo Studio",
+        type: "image/jpeg",
       },
     ],
   },
@@ -66,6 +77,7 @@ export const metadata: Metadata = {
     description:
       "Estudio de tatuajes en Bogotá: Blackwork, Japonés, Realismo y Fine Line.",
     images: [SITE.logo],
+    creator: "@artnaldotattoo",
   },
   robots: {
     index: true,
@@ -77,10 +89,45 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "google170448f359b6e5e2",
+  },
+  icons: {
+    icon: "/icon-192.png",
+    shortcut: "/icon-192.png",
+    apple: "/icon-192.png",
+    other: [
+      { rel: "manifest", url: "/site.webmanifest" },
+    ],
+  },
+  other: {
+    // SEO Local / Geo (Bogotá, Colombia)
+    "geo.region": "CO-DC",
+    "geo.placename": "Bogotá",
+    "geo.position": "4.7110;-74.0721",
+    ICBM: "4.7110, -74.0721",
+
+    // PWA / iOS / Mobile
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "Artnaldo Tattoo",
+    "mobile-web-app-capable": "yes",
+    "application-name": "Artnaldo Tattoo",
+
+    // Theme color para todos los navegadores
+    "theme-color": SITE.themeColor,
+    "msapplication-TileColor": SITE.themeColor,
+    "msapplication-config": "/browserconfig.xml",
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: SITE.themeColor,
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
