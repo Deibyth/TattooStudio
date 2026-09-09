@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Portfolio from "@/components/Portfolio";
-import KatanaDivider from "@/components/KatanaDivider";
+import ReferenceDivider from "@/components/ReferenceDivider";
 import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -384,12 +384,12 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <KatanaDivider />
+      <ReferenceDivider />
 
       {/* PORTAFOLIO */}
       <Portfolio />
 
-      <KatanaDivider />
+      <ReferenceDivider />
 
       {/* RITUAL / THE ARTIST */}
       <section id="ritual" className="py-24 px-6 bg-carbon-900/95 relative z-10 backdrop-blur-sm">
@@ -445,7 +445,7 @@ export default function Home() {
       </section>
 
       {/* UBICACIÓN / MAPA */}
-      <KatanaDivider />
+      <ReferenceDivider />
 
       {/* MAPA */}
       <MapSection />

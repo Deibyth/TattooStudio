@@ -113,7 +113,7 @@ export default function MapSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="relative border border-carbon-700 rounded-sm overflow-hidden group"
+          className="relative overflow-hidden rounded-sm border border-carbon-700 bg-carbon-900 group"
         >
           <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3]">
             <iframe
@@ -124,10 +124,11 @@ export default function MapSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
-              className="absolute inset-0 w-full h-full border-0"
+              className="absolute inset-0 h-full w-full border-0 [filter:invert(92%)_hue-rotate(180deg)_saturate(0.72)_brightness(0.82)_contrast(1.12)] transition-[filter] duration-500 group-hover:[filter:invert(92%)_hue-rotate(180deg)_saturate(0.86)_brightness(0.9)_contrast(1.08)]"
             />
           </div>
-          <div className="absolute inset-0 border border-oro-kintsugi/20 group-hover:border-oro-kintsugi/50 m-4 rounded-sm z-20 pointer-events-none transition-colors duration-500" />
+          <div className="pointer-events-none absolute inset-0 z-20 bg-[#0a0a0b]/10 mix-blend-multiply" />
+          <div className="pointer-events-none absolute inset-4 z-20 rounded-sm border border-oro-kintsugi/25 transition-colors duration-500 group-hover:border-oro-kintsugi/55" />
         </motion.div>
       </div>
     </section>

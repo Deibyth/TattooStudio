@@ -63,7 +63,7 @@ src/
 ├── components/
 │   ├── Footer.tsx                # Footer with social links & WhatsApp CTA
 │   ├── JsonLd.tsx                # Reusable JSON-LD script renderer
-│   ├── KatanaDivider.tsx         # Decorative divider
+│   ├── ReferenceDivider.tsx       # Decorative katana/Hannya divider
 │   ├── KintsugiDivider.tsx       # Decorative divider
 │   ├── Portfolio.tsx             # Portfolio section
 │   ├── PortfolioCarousel.tsx     # Infinite auto-scrolling carousel
