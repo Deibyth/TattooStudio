@@ -24,6 +24,10 @@ export const REVEAL_TITLES = {
     jp: "墨の前の儀式",
     es: "EL RITUAL ANTES\nDE LA TINTA",
   },
+  awards: {
+    jp: "儀式の結晶",
+    es: "EL FRUTO\nDEL RITUAL",
+  },
   map: {
     jp: "墨が待っている",
     es: "LA TINTA\nTE ESPERA",

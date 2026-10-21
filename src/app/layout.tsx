@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "estudio de tatuajes Bogotá",
     "tatuajes blackwork Bogotá",
     "tatuajes japonés Bogotá",
+    "tatuajes Kennedy Bogotá",
+    "tatuador Kennedy",
+    "estudio de tatuajes Kennedy",
     "realismo",
     "fine line",
     "cover up",
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
     "artnaldo tattoo",
     "ArtnaldoTattoo",
     "KasayaInk",
-    "Naldo TAttoo Studio",
+    "Naldo Tattoo Studio",
     "Artnaldo estudio tattoo",
     "tatuajes bogota",
     "tatuadores en bogota",
@@ -107,11 +110,11 @@ export const metadata: Metadata = {
     ],
   },
   other: {
-    // SEO Local / Geo (Bogotá, Colombia)
+    // SEO Local / Geo (Kennedy, Bogotá, Colombia)
     "geo.region": "CO-DC",
-    "geo.placename": "Bogotá",
-    "geo.position": "4.7110;-74.0721",
-    ICBM: "4.7110, -74.0721",
+    "geo.placename": "Kennedy, Bogotá",
+    "geo.position": "4.622830907916801;-74.13742028326351",
+    ICBM: "4.622830907916801, -74.13742028326351",
 
     // PWA / iOS / Mobile
     "apple-mobile-web-app-capable": "yes",

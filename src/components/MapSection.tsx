@@ -13,9 +13,7 @@ import { REVEAL_TITLES } from "@/data/revealTitles";
  * automáticamente a cualquier ancho de pantalla gracias al contenedor con
  * aspect-ratio, así que no hay recorte ni scroll interno en móvil.
  *
- * TODO: cuando el estudio tenga dirección pública, reemplazar el texto
- * "Bogotá D.C., Colombia" y afinar el título llamativo si se prefiere otra
- * frase de marca.
+ * Dirección pública del estudio: Cra. 71d #1-13 sur, Kennedy, Bogotá.
  */
 
 /** URL del embed oficial del estudio (Google Maps Embed API). */
@@ -41,6 +39,24 @@ function MapPinIcon({ className }: { className?: string }) {
     >
       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
       <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
+function ClockIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
     </svg>
   );
 }
@@ -81,9 +97,9 @@ export default function MapSection() {
           <div className="flex items-start gap-3 text-sm text-gris-secundario font-light">
             <MapPinIcon className="w-5 h-5 text-rojo-torii-500 shrink-0 mt-0.5" />
             <span className="leading-relaxed">
-              Bogotá D.C., Colombia · Thermuthis Tattoo
+              Cra. 71d #1-13 sur, Kennedy · Bogotá, Colombia
               <br />
-              Agenda previa{" "}
+              Artnaldo Tattoo Studio · Agenda previa{" "}
               <a
                 href={SITE.whatsapp}
                 target="_blank"
@@ -92,6 +108,15 @@ export default function MapSection() {
               >
                 por WhatsApp
               </a>
+            </span>
+          </div>
+
+          <div className="flex items-start gap-3 text-sm text-gris-secundario font-light">
+            <ClockIcon className="w-5 h-5 text-rojo-torii-500 shrink-0 mt-0.5" />
+            <span className="leading-relaxed">
+              Lunes a sábado · 10:00 a. m. – 7:00 p. m.
+              <br />
+              Domingo cerrado
             </span>
           </div>
 

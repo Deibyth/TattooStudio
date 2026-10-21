@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Portfolio from "@/components/Portfolio";
+import AwardsCarousel from "@/components/AwardsCarousel";
 import ReferenceDivider from "@/components/ReferenceDivider";
 import MapSection from "@/components/MapSection";
+import { awardItems } from "@/data/awards";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { InstagramIcon, WhatsAppIcon } from "@/components/SocialIcons";
@@ -22,9 +24,8 @@ const NAV_LINKS = [
 ];
 
 /* JSON-LD (Schema.org) — datos de la landing para rich snippets.
- * ADDRESS / GEO: TODO — reemplazar address.streetAddress por la dirección
- * real del estudio y añadir `geo` con las coordenadas reales de Bogotá
- * cuando se conozcan. No se emiten coordenadas ficticias. */
+ * Dirección y geo reales del estudio (Kennedy, Bogotá). Las coordenadas
+ * coinciden con el embed del mapa de MapSection para mantener consistencia. */
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": ["TattooParlour", "LocalBusiness"],
@@ -40,14 +41,22 @@ const localBusiness = {
   sameAs: [SITE.instagram],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "TODO: dirección real del estudio",
-    addressLocality: "Bogotá D.C.",
+    streetAddress: "Cra. 71d #1-13 sur, Kennedy",
+    addressLocality: "Bogotá",
     addressRegion: "Cundinamarca",
-    postalCode: "110111",
+    postalCode: "110831",
     addressCountry: "CO",
   },
-  // TODO: agregar `geo` con la latitud y longitud reales del estudio.
-  areaServed: { "@type": "City", name: "Bogotá" },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 4.622830907916801,
+    longitude: -74.13742028326351,
+  },
+  hasMap: "https://www.google.com/maps/search/?api=1&query=4.622830907916801,-74.13742028326351",
+  areaServed: [
+    { "@type": "City", name: "Bogotá" },
+    { "@type": "AdministrativeArea", name: "Kennedy" },
+  ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
@@ -58,8 +67,8 @@ const localBusiness = {
       "Friday",
       "Saturday",
     ],
-    opens: "11:00", // TODO: ajustar horario real
-    closes: "20:00", // TODO: ajustar horario real
+    opens: "10:00",
+    closes: "19:00",
   },
 };
 
@@ -161,7 +170,7 @@ export default function Home() {
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-oro-kintsugi/50 shrink-0">
                 <Image src="/logo.jpg" alt="Artnaldo Tattoo Studio - Logo del header" fill sizes="40px" className="object-cover" />
               </div>
-              <span className="font-display font-semibold text-lg sm:text-xl tracking-widest text-blanco-washi truncate">
+              <span className="font-display font-extrabold text-lg sm:text-xl tracking-wide uppercase text-blanco-washi truncate">
                 Artnaldo Tattoo
               </span>
             </div>
@@ -444,6 +453,35 @@ export default function Home() {
                </p>
            </motion.div>
         </div>
+      </section>
+
+      <ReferenceDivider />
+
+      {/* RECONOCIMIENTOS / EL FRUTO DEL RITUAL */}
+      <section id="reconocimientos" className="py-24 bg-carbon-900 relative z-10 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-7xl mx-auto text-center mb-12 px-6"
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-blanco-washi">
+            Reconocimientos
+          </span>
+          <RevealTitle
+            as="h2"
+            {...REVEAL_TITLES.awards}
+            className="mt-3 text-4xl md:text-5xl font-display text-blanco-washi"
+          />
+          <div className="w-12 h-1 bg-rojo-torii-600 mx-auto mt-5" />
+          <p className="mt-5 text-gris-secundario font-light max-w-xl mx-auto">
+            Cada reconocimiento es el eco de una ceremonia. El fruto de tratar
+            cada pieza como un ritual y cada trazo como un juramento.
+          </p>
+        </motion.div>
+
+        <AwardsCarousel items={awardItems} />
       </section>
 
       {/* UBICACIÓN / MAPA */}
