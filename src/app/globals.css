@@ -1,22 +1,26 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-carbon-900: #0A0A0B;
+  --color-carbon-900: #0a0a0b;
   --color-carbon-800: #141416;
-  --color-carbon-700: #16161A;
+  --color-carbon-700: #16161a;
   --color-carbon-600: #222226;
-  
-  --color-rojo-torii-500: #D90429;
-  --color-rojo-torii-600: #C8102E;
-  
-  --color-oro-kintsugi: #C5A059;
-  
-  --color-blanco-washi: #E2E2E2;
-  --color-gris-secundario: #A0A0A0;
+
+  --color-rojo-torii-500: #d90429;
+  --color-rojo-torii-600: #c8102e;
+
+  /* Antes "Oro Kintsugi" (#C5A059). La paleta pasó a negro-blanco-rojo:
+   * acentos/bordes/hover ahora usan Rojo Torii. Se conserva el nombre de
+   * token para no renombrar la utilidad `oro-kintsugi` en toda la base,
+   * pero su valor ES rojo. */
+  --color-oro-kintsugi: #d90429;
+
+  --color-blanco-washi: #e2e2e2;
+  --color-gris-secundario: #a0a0a0;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-shippori), ui-serif, Georgia, serif;
-  
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -25,7 +29,7 @@
 :root {
   --background: var(--color-carbon-900);
   --foreground: var(--color-blanco-washi);
-  
+
   --card: var(--color-carbon-800);
   --card-foreground: var(--color-blanco-washi);
 
@@ -49,7 +53,7 @@
 
   --border: var(--color-carbon-600);
   --input: var(--color-carbon-600);
-  --ring: var(--color-oro-kintsugi);
+  --ring: var(--color-rojo-torii-500);
 
   --radius: 0.5rem;
 }
@@ -93,19 +97,19 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-oro-kintsugi);
+  background: var(--color-rojo-torii-500);
 }
 
 @utility glow-border {
-  border: 1px solid rgba(197, 160, 89, 0.3); /* Oro Kintsugi */
+  border: 1px solid rgba(217, 4, 41, 0.3); /* Rojo Torii */
   transition: all 0.3s ease;
-  
+
   &:hover {
-    border-color: rgba(197, 160, 89, 0.8);
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+    border-color: rgba(217, 4, 41, 0.8);
+    box-shadow: 0 0 10px rgba(217, 4, 41, 0.2);
   }
 }
 
 @utility text-glow {
-  text-shadow: 0 0 30px rgba(197, 160, 89, 0.25);
+  text-shadow: 0 0 30px rgba(217, 4, 41, 0.25);
 }

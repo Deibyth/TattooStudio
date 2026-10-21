@@ -154,7 +154,7 @@ export default function Footer() {
 
         {/* Navegación */}
         <nav className="space-y-4 md:justify-self-center" aria-label="Navegación del sitio">
-            <h3 className="text-xs font-semibold tracking-widest uppercase text-oro-kintsugi">
+            <h3 className="text-xs font-semibold tracking-widest uppercase text-blanco-washi">
               Navegación
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -177,7 +177,7 @@ export default function Footer() {
         {showTerms && createPortal(
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="terms-title">
               <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setShowTerms(false)} />
-              <div className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-xl border-2 border-rojo-torii-600 ring-1 ring-oro-kintsugi/50 bg-carbon-900 shadow-[0_0_50px_rgba(217,4,41,0.3),0_0_25px_rgba(197,160,89,0.15)]">
+              <div className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-xl border-2 border-rojo-torii-600 ring-1 ring-rojo-torii-500/50 bg-carbon-900 shadow-[0_0_50px_rgba(217,4,41,0.3),0_0_25px_rgba(217,4,41,0.15)]">
                 <div className="flex items-center justify-between border-b border-oro-kintsugi/40 px-6 py-4">
                   <h2 id="terms-title" className="font-display text-xl md:text-2xl font-bold text-blanco-washi">Términos y Condiciones del Servicio</h2>
                   <button type="button" onClick={() => setShowTerms(false)} className="h-9 w-9 rounded-full border border-oro-kintsugi/50 flex items-center justify-center text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi transition-colors" aria-label="Cerrar">
@@ -197,7 +197,7 @@ export default function Footer() {
 
         {/* Redes sociales */}
         <div className="space-y-4 md:justify-self-end">
-          <h3 className="text-xs font-semibold tracking-widest uppercase text-oro-kintsugi">
+          <h3 className="text-xs font-semibold tracking-widest uppercase text-blanco-washi">
             Sigue el estudio
           </h3>
           <div className="flex items-center gap-4">
@@ -208,7 +208,7 @@ export default function Footer() {
                 target={s.target}
                 rel={s.rel}
                 aria-label={s.label}
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                className="w-11 h-11 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(217,4,41,0.25)] transition-all duration-300"
               >
                 {s.component}
               </Link>
@@ -230,7 +230,7 @@ export default function Footer() {
               href="https://github.com/Deibyth"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-oro-kintsugi font-medium hover:underline transition-colors"
+              className="text-blanco-washi font-medium hover:text-rojo-torii-500 hover:underline transition-colors"
             >
               Deiby7h322
             </a>

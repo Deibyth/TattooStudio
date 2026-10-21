@@ -174,7 +174,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(217,4,41,0.25)] transition-all duration-300"
                 >
                   <InstagramIcon className="w-5 h-5" />
                 </a>
@@ -183,7 +183,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(197,160,89,0.25)] transition-all duration-300"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-carbon-600 text-gris-secundario hover:text-blanco-washi hover:border-oro-kintsugi hover:shadow-[0_0_12px_rgba(217,4,41,0.25)] transition-all duration-300"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
                 </a>
@@ -316,7 +316,7 @@ export default function Home() {
                initial={{ opacity: 0, y: 10 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.6, delay: 0.1 }}
-               className="inline-block px-4 py-1.5 border border-oro-kintsugi/30 rounded-full text-xs font-semibold tracking-widest text-oro-kintsugi uppercase bg-carbon-800/50 backdrop-blur-sm"
+               className="inline-block px-4 py-1.5 border border-oro-kintsugi/30 rounded-full text-xs font-semibold tracking-widest text-blanco-washi uppercase bg-carbon-800/50 backdrop-blur-sm"
              >
                 Sumi-e x Dark Blackwork
              </motion.div>

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 /**
  * Splash screen de carga: cubre toda la ventana con el logo centrado
- * en un círculo rojo (rojo torii) y un destello dorado. Se mantiene al
+ * en un círculo rojo (rojo torii) y un destello rojo. Se mantiene al
  * menos MIN_VISIBLE_MS para que la marca se registre, y hace fade out
  * escalando hasta revelar el contenido detrás.
  */
@@ -47,7 +47,7 @@ export default function SplashScreen() {
                 sizes="128px"
                 className="object-cover mix-blend-luminosity"
               />
-              {/* aro dorado interior */}
+              {/* aro rojo interior */}
               <div className="absolute inset-1.5 rounded-full border border-oro-kintsugi/60 pointer-events-none" />
             </motion.div>
 
@@ -58,7 +58,7 @@ export default function SplashScreen() {
               className="font-display text-2xl md:text-3xl tracking-[0.35em] text-blanco-washi font-semibold"
             >
               ARTNALDO{" "}
-              <span className="text-xs md:text-sm tracking-[0.2em] text-oro-kintsugi uppercase -ml-1">
+              <span className="text-xs md:text-sm tracking-[0.2em] text-blanco-washi uppercase -ml-1">
                 Tattoo Studio
               </span>
             </motion.div>

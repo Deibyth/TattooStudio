@@ -58,7 +58,7 @@ export default function Portfolio() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12 px-6"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-oro-kintsugi">
+          <span className="text-xs uppercase tracking-[0.3em] text-blanco-washi">
             Galería
           </span>
           <RevealTitle

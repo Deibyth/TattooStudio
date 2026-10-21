@@ -20,7 +20,7 @@ import { REVEAL_TITLES } from "@/data/revealTitles";
 
 /** URL del embed oficial del estudio (Google Maps Embed API). */
 const STUDIO_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.55242570828298!2d-74.13742028326351!3d4.622830907916801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9d5c58c4742b%3A0xa6d02457567666da!2sThermuthis%20Tattoo!5e0!3m2!1ses!2sco!4v1786165820327!5m2!1ses!2sco";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.5526155485945!2d-74.13703270326455!3d4.622289668737763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f000d36664f%3A0x5745040db0381112!2sJuan%20vargas%20Barbershop!5e0!3m2!1ses!2sco!4v1792546270532!5m2!1ses!2sco"
 
 /** Enlace directo a Google Maps para "Cómo llegar" (mismas coordenadas del embed). */
 const STUDIO_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -79,7 +79,7 @@ export default function MapSection() {
           </p>
 
           <div className="flex items-start gap-3 text-sm text-gris-secundario font-light">
-            <MapPinIcon className="w-5 h-5 text-oro-kintsugi shrink-0 mt-0.5" />
+            <MapPinIcon className="w-5 h-5 text-rojo-torii-500 shrink-0 mt-0.5" />
             <span className="leading-relaxed">
               Bogotá D.C., Colombia · Thermuthis Tattoo
               <br />
@@ -88,7 +88,7 @@ export default function MapSection() {
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-oro-kintsugi font-medium hover:text-blanco-washi hover:underline underline-offset-4 transition-colors"
+                className="text-blanco-washi font-medium hover:text-rojo-torii-500 hover:underline underline-offset-4 transition-colors"
               >
                 por WhatsApp
               </a>
@@ -101,7 +101,7 @@ export default function MapSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-block px-8 py-4 text-sm font-bold tracking-widest uppercase text-blanco-washi border border-oro-kintsugi/40 hover:border-oro-kintsugi hover:bg-carbon-800 hover:shadow-[0_0_18px_rgba(197,160,89,0.2)] transition-all duration-300 cursor-pointer"
+            className="inline-block px-8 py-4 text-sm font-bold tracking-widest uppercase text-blanco-washi border border-oro-kintsugi/40 hover:border-oro-kintsugi hover:bg-carbon-800 hover:shadow-[0_0_18px_rgba(217,4,41,0.2)] transition-all duration-300 cursor-pointer"
           >
             Cómo llegar →
           </motion.a>

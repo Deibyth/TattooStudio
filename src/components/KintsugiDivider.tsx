@@ -22,9 +22,9 @@ export default function KintsugiDivider() {
         />
         <defs>
           <linearGradient id="kintsugi-gradient" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#C5A059" stopOpacity="0" />
-            <stop offset="50%" stopColor="#C5A059" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
+            <stop offset="0%" stopColor="#D90429" stopOpacity="0" />
+            <stop offset="50%" stopColor="#D90429" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#D90429" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
