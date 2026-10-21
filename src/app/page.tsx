@@ -301,7 +301,9 @@ export default function Home() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_900px_650px_at_25%_55%,rgba(10,10,11,0.78),rgba(10,10,11,0.35)_45%,rgba(10,10,11,0.08)_75%,transparent_95%)]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/85 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/92 via-transparent to-transparent"></div>
+          {/* Oscurecimiento global del fondo para mayor contraste con el texto */}
+          <div className="absolute inset-0 bg-carbon-900/40"></div>
         </div>
 
         <div className="max-w-7xl mx-auto w-full px-6 pt-32 pb-24">

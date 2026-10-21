@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 
-/** Separador visual inspirado en la referencia del estudio: katana y Hannya. */
+/** Separador visual del estudio: serpientes gemelas con el emblema central AT. */
 export default function ReferenceDivider() {
   return (
     <motion.div
@@ -11,15 +11,15 @@ export default function ReferenceDivider() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative mx-auto w-[90%] max-w-5xl overflow-hidden py-2 sm:w-[82%] sm:py-4"
+      className="relative mx-auto w-[88%] max-w-3xl overflow-hidden py-2 sm:py-4"
       aria-hidden="true"
     >
       <Image
-        src="/divider-reference.png"
+        src="/Serpientes_gemelas.png"
         alt=""
-        width={1118}
-        height={223}
-        sizes="(max-width: 640px) 90vw, 82vw"
+        width={2172}
+        height={724}
+        sizes="(max-width: 768px) 88vw, 768px"
         className="h-auto w-full object-contain"
       />
     </motion.div>
