@@ -292,7 +292,7 @@ export default function Home() {
         {/* Background protagonista, estático (sin parallax) */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/fondo.png"
+            src="/FondoTintaSombra.jpeg"
             alt=""
             fill
             priority
@@ -400,15 +400,15 @@ export default function Home() {
              viewport={{ once: true, margin: "-100px" }}
              transition={{ duration: 0.8 }}
              whileHover={{ scale: 1.01 }}
-             className="relative aspect-[1080/1351] md:h-[760px] md:aspect-auto w-full border border-carbon-700 rounded-sm overflow-hidden group"
+             className="relative aspect-[1024/1536] md:h-[760px] md:aspect-auto w-full border border-carbon-700 rounded-sm overflow-hidden group"
            >
               <Image
-                src="/naldofoto.jpg"
+                src="/NaldoPresentacion.jpeg"
                 alt="Naldo, tatuador y fundador del estudio"
                 fill
                 quality={100}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-105"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/70 via-transparent to-transparent"></div>
               <div className="absolute inset-0 border border-oro-kintsugi/20 group-hover:border-oro-kintsugi/50 m-4 rounded-sm z-20 pointer-events-none transition-colors duration-500"></div>
