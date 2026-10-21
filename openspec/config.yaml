@@ -2,7 +2,7 @@
 schema: spec-driven
 
 context: |
-  Brand: ARTNALDO TATTOO — Blackwork / Neo-Japanese tattoo studio site.
+  Brand: ARTNALDO TATTOO — Blackwork Japanese tattoo studio site.
   Tech stack: greenfield — no project dependencies yet. Host has node v24.18.0, npm 12.0.1, pnpm 11.15.1, git 2.53.0. No bun/yarn/deno.
   Architecture: undecided (to be resolved in the proposal/design phases).
   Testing: no test runner established in project; strict TDD disabled until a runner is chosen and installed.

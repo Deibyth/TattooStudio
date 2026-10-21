@@ -11,7 +11,7 @@ template_version: 1
 
 ## Product vision
 
-A Blackwork / Neo-Japanese tattoo studio website ("ARTNALDO TATTOO") that sells craft and ritual before ink. The site presents a dark, precise, ceremonial experience ("Tinta & Sombra", Sumi-e x Dark Blackwork): ultra-dark charcoal surfaces with saturated ritual color accents inspired by temples, Hannya masks and Ukiyo-e prints. Its job is not just to show tattoos, but to walk a prospect from impression → style discovery → structured quote → WhatsApp conversation with the artist. Sections: Hero (masonry grid of saturated B&W portfolio photos + primary CTA "Agendar Cita / Cotizar" in Rojo Torii), Gallery/Portfolio (interactive filters), The Artist / Ritual (philosophy, Japanese influence, custom design process), and a step-by-step Quote process. End-user UI copy is Spanish (Argentine).
+A Blackwork Japanese tattoo studio website ("ARTNALDO TATTOO") that sells craft and ritual before ink. The site presents a dark, precise, ceremonial experience ("Tinta & Sombra", Sumi-e x Dark Blackwork): ultra-dark charcoal surfaces with saturated ritual color accents inspired by temples, Hannya masks and Ukiyo-e prints. Its job is not just to show tattoos, but to walk a prospect from impression → style discovery → structured quote → WhatsApp conversation with the artist. Sections: Hero (masonry grid of saturated B&W portfolio photos + primary CTA "Agendar Cita / Cotizar" in Rojo Torii), Gallery/Portfolio (interactive filters), The Artist / Ritual (philosophy, Japanese influence, custom design process), and a step-by-step Quote process. End-user UI copy is Spanish (Argentine).
 
 ## User journeys
 
