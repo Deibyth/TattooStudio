@@ -1,27 +1,52 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import type { GalleryItem } from "./Portfolio";
 
-const CARD_WIDTH = 336; // px, incluye gap
+const CARD_WIDTH = 364; // px, ancho de tarjeta (340) + gap (24)
 const SPEED = 40; // px por segundo
 
-export default function PortfolioCarousel({ items }: { items: GalleryItem[] }) {
-  const trackRef = useRef<HTMLDivElement>(null);
+export default function PortfolioCarousel({
+  items,
+  onCycleComplete,
+}: {
+  items: GalleryItem[];
+  /** Se dispara cuando se recorrieron TODAS las fotos de la categoría una vez. */
+  onCycleComplete?: () => void;
+}) {
   const x = useMotionValue(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  // Evita disparar el avance más de una vez por recorrido completo.
+  const cycleFired = useRef(false);
 
-  // Duplicamos la lista para lograr un loop infinito sin costuras.
-  const loopItems = [...items, ...items];
+  // Cada vez que cambia la categoría (cambia la lista de items) reseteamos la
+  // posición a 0. Como el padre hace este cambio mientras la opacidad es 0
+  // (fade out), este "salto" nunca lo ve el usuario.
+  useEffect(() => {
+    x.set(0);
+    cycleFired.current = false;
+  }, [items, x]);
+
+  // Duplicamos la lista para lograr un loop infinito sin costuras dentro de
+  // una misma categoría.
+  const loopItems = items.length > 0 ? [...items, ...items] : [];
   const trackWidth = items.length * CARD_WIDTH;
 
   useAnimationFrame((_, delta) => {
     if (isPaused || isDragging || items.length === 0) return;
     let next = x.get() - (SPEED * delta) / 1000;
-    // cuando se recorre exactamente un set completo, saltamos al inicio (invisible)
+    // Recorrió todas las fotos del folder una vez: avisamos al padre para que
+    // pase a la siguiente categoría. El avance lo decide el tamaño del folder,
+    // no un temporizador: todas las fotos se ven completas antes de cambiar.
+    if (!cycleFired.current && next <= -trackWidth) {
+      cycleFired.current = true;
+      onCycleComplete?.();
+    }
+    // Wrap infinito: si no hay avance de categoría (una sola categoría), el
+    // loop continúa sin costuras en lugar de irse al vacío.
     if (next <= -trackWidth) next += trackWidth;
     x.set(next);
   });
@@ -37,7 +62,6 @@ export default function PortfolioCarousel({ items }: { items: GalleryItem[] }) {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32 z-20 bg-gradient-to-l from-carbon-900 to-transparent" />
 
       <motion.div
-        ref={trackRef}
         className="flex gap-6 py-6"
         style={{ x }}
         drag="x"
