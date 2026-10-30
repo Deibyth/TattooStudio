@@ -1,6 +1,6 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { portfolioItems } from "@/data/portfolio";
+import { categories, type PortfolioCategory } from "@/data/portfolio";
 
 const IMAGE_EXTS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]);
 
@@ -8,7 +8,7 @@ function isImage(file: string) {
   return IMAGE_EXTS.has(path.extname(file).toLowerCase());
 }
 
-/** Convierte "mascara-num-01.jpg" en "mascara num 01". */
+/** Convierte "IMG_20250804_181032.jpg" en "IMG 20250804 181032". */
 function humanize(file: string) {
   return file
     .replace(/\.[^.]+$/, "")
@@ -16,43 +16,55 @@ function humanize(file: string) {
     .trim();
 }
 
-// Re-leer el directorio en cada request para que las imágenes nuevas
+/** Codifica cada segmento de la ruta para soportar espacios y símbolos. */
+function toPublicUrl(folder: string, file: string) {
+  return `/portfolio/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+}
+
+export type PortfolioApiItem = {
+  id: string;
+  src: string;
+  title: string;
+  category: PortfolioCategory;
+};
+
+export type PortfolioApiGroup = {
+  id: PortfolioCategory;
+  label: string;
+  items: PortfolioApiItem[];
+};
+
+// Re-leer los directorios en cada request para que las imágenes nuevas
 // aparezcan sin necesidad de rebuild ni reiniciar.
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const dir = path.join(process.cwd(), "public", "portfolio");
+  const base = path.join(process.cwd(), "public", "portfolio");
 
-  let files: string[] = [];
-  try {
-    files = await readdir(dir);
-  } catch {
-    // carpeta no existe aún -> caemos a los placeholders
-  }
+  const groups: PortfolioApiGroup[] = await Promise.all(
+    categories.map(async (cat) => {
+      let files: string[] = [];
+      try {
+        files = await readdir(path.join(base, cat.folder));
+      } catch {
+        // La carpeta no existe aún -> categoría vacía.
+      }
 
-  const images = files
-    .filter(isImage)
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+      const items = files
+        .filter(isImage)
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+        .map<PortfolioApiItem>((file) => ({
+          id: `${cat.id}-${file}`,
+          src: toPublicUrl(cat.folder, file),
+          title: humanize(file),
+          category: cat.id,
+        }));
 
-  // Si todavía no hay fotos reales, mostramos los placeholders actuales
-  // para que el carrusel no quede vacío. En cuanto cargues imágenes,
-  // reemplaza automáticamente.
-  if (images.length === 0) {
-    return Response.json({
-      items: portfolioItems.map((p) => ({
-        id: p.id,
-        src: p.src,
-        title: p.title,
-        placeholderFilter: p.placeholderFilter,
-      })),
-    });
-  }
+      return { id: cat.id, label: cat.label, items };
+    }),
+  );
 
-  return Response.json({
-    items: images.map((f, i) => ({
-      id: `${i}-${f}`,
-      src: `/portfolio/${f}`,
-      title: humanize(f),
-    })),
-  });
+  // Solo devolvemos categorías que efectivamente tengan fotos, preservando
+  // el orden definido en `categories`.
+  return Response.json({ groups: groups.filter((g) => g.items.length > 0) });
 }
